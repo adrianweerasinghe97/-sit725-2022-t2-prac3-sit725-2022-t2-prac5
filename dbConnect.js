@@ -12,10 +12,9 @@ const client = new MongoClient(uri, {useNewUrlParser: true})
             console.log('MongoDB Connected')
         }
         else {
-            console.log("DB Error: ", err);
-            process.exit(1);
+            console.log("DB Error: ", err)
         }
-    })
+    });
 
 
-exports.MongoClient = client;
+module.MongoClient = client;

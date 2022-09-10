@@ -1,12 +1,10 @@
+require('dotenv').config()
 var express = require("express")
 var app = express()
 var cors = require('cors')
 let dbConnect = require("./dbConnect"); 
 let projectRoutes = require("./routes/projectRoutes");
-let userRoute = require("./routes/userRoutes")
-
-
-let projectCollection; 
+let userRoute = require("./routes/userRoutes");
 
 
 app.use(express.static(__dirname+'/public'))
@@ -14,6 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors())
 app.use('/api/projects',projectRoutes)
+app.use('/api/user',userRoute)
 
 
 
@@ -94,15 +93,15 @@ app.use('/api/projects',projectRoutes)
 
 
 
-app.get('/addTwoNumbers/:n1/:n2', function(req,res,next){
-    var n1 = parseInt(req.params.n1) 
-    var n2 = parseInt(req.params.n2)
-    var result = n1 + n2 || null
-    if(result == null) {
-      res.json({result: result, statusCode: 400}).status(400)
-    }
-    else { res.json({result: result, statusCode: 200}).status(200) } 
-  })
+// app.get('/addTwoNumbers/:n1/:n2', function(req,res,next){
+//     var n1 = parseInt(req.params.n1) 
+//     var n2 = parseInt(req.params.n2)
+//     var result = n1 + n2 || null
+//     if(result == null) {
+//       res.json({result: result, statusCode: 400, message: "success"}).status(400)
+//     }
+//     else { res.json({result: result, statusCode: 200}).status(200) } 
+//   })
 
 
 // app.get('/addTwoNumbers/:n1/:n2', function(request, response){
