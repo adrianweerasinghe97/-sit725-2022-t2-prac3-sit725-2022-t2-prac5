@@ -1,9 +1,9 @@
 let client = require("../dbConnect");
+
 let projectCollection;
 setTimeout(() => {
-    projectCollection = client.MongoClient.db().collection("project");
-//     projectCollection = client.mongoClient.db().collection("project");
-}, 2000)
+  projectCollection = client.MongoClient.db().collection("pets");
+}, 2000);
 
 
 
